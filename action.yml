@@ -1,0 +1,35 @@
+name: 'Portainer GitOps Action'
+description: 'Perform GitOps actions against a Portainer instance'
+inputs:
+  portainer-host:
+    description: portainer host (include scheme, domain, and port)
+    required: true
+  portainer-api-key:
+    description: portainer api key
+    required: true
+  github-pat:
+    description: github PAT
+    required: true
+  action:
+    description: Portainer action
+    required: true
+  endpoint-id:
+    description: portainer endpoint ID
+  stack-name:
+    description: name stack
+  repo-url:
+    description: url of repo
+  repo-compose-file-path:
+    description: path to compose file in repo
+  repo-username:
+    description: username of repo
+  repo-password:
+    description: username of repo
+
+outputs:
+  stacks:
+    description: JSON array of stacks
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

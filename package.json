@@ -1,0 +1,28 @@
+{
+  "name": "portainer-gitops-action",
+  "version": "0.0.1",
+  "description": "Perform GitOps actions against a Portainer instance",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defung/portainer-gitops-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/defung/portainer-gitops-action/issues"
+  },
+  "homepage": "https://github.com/defung/portainer-gitops-action#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  }
+}
