@@ -1,0 +1,44 @@
+name: Auto Build
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+
+      - name: Build Dist
+        run: |
+          npm run build
+
+      - name: Commit Dist Build
+        uses: stefanzweifel/git-auto-commit-action@v4
+        id: commit-dist-build
+        with:
+          commit_message: Dist Build Commit from Github Actions
+
+      - name: End if Dist was committed
+        if: steps.commit-dist-build.outputs.changes_detected == 'true'
+        run: |
+          echo "Dist was automatically committed, stopping workflow"
+          exit 1
