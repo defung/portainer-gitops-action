@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import fetch from 'node-fetch';
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
