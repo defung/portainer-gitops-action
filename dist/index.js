@@ -28,7 +28,7 @@ const props_1 = require("./props");
 const portainer_1 = require("./portainer");
 const makePortainerApi = ({ apiKey, host }) => {
     const config = new portainer_1.Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-    return (0, portainer_1.StacksApiFactory)(config, fetch);
+    return (0, portainer_1.StacksApiFactory)(config);
 };
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {
