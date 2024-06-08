@@ -4,8 +4,9 @@
   "description": "Perform GitOps actions against a Portainer instance",
   "main": "src/index.js",
   "scripts": {
+    "codegen": "./bin/codegen.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc && ncc build lib/index.js && rm -rf lib"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/defung/portainer-gitops-action#readme",
   "devDependencies": {
+    "@vercel/ncc": "^0.38.1",
     "typescript": "^5.4.5"
   },
   "dependencies": {

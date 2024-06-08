@@ -1,38 +1,35 @@
 import * as core from '@actions/core';
-import axios from 'axios';
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
-  Configuration, PortainerStack, StacksApi,
-  StacksApiFactory,
-  StacksComposeStackFromGitRepositoryPayload,
+  Configuration,
+  StacksApiFactory, StacksComposeStackFromGitRepositoryPayload,
   StacksStackGitRedployPayload
-} from "./portainer";
+} from "./generated-sources/portainer-ce-2.20.3";
 
-const makePortainerApi = ({ apiKey, host }: PortainerProps): StacksApi => {
+const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
   const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api` });
-  return new StacksApi(config);
+  return StacksApiFactory(config);
 }
-
-const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
-  const config = { apiKey: apiKey, basePath: `${host}/api` };
-
-  return {
-    stackList: async (): Promise<PortainerStack[]> => {
-      const res = await axios<PortainerStack[]>(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey }});
-      return res.data;
-    }
-  }
-}
+// const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
+//   const config = { apiKey: apiKey, basePath: `${host}/api` };
+//
+//   return {
+//     stackList: async (): Promise<PortainerStack[]> => {
+//       const res = await axios<PortainerStack[]>(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey }});
+//       return res.data;
+//     }
+//   }
+// }
 
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
 
   [ActionType.List]: async (): Promise<void> => {
     const portainerApi = makePortainerApi(portainer);
 
-    const list = await portainerApi.stackList();
-    const filtered = list.filter((s) => s.endpointId === action.endpointId);
-    const outputStr = JSON.stringify(filtered.map((s) => ({ 'Id': s.id, 'Name': s.name })));
+    const list = (await portainerApi.stackList()).data;
+    const filtered = list.filter((s) => s.EndpointId === action.endpointId);
+    const outputStr = JSON.stringify(filtered.map((s) => ({ 'Id': s.Id, 'Name': s.Name })));
     core.setOutput("stacks", outputStr);
   },
 
@@ -42,15 +39,15 @@ const processAction = ({ action, portainer, repo }: PortainerActionProps): Recor
     } else {
       const portainerApi = makePortainerApi(portainer);
 
-      const list = await portainerApi.stackList();
-      const stackToDelete = list.find((s) => s.endpointId === action.endpointId && s.name === action.stackName);
+      const list = (await portainerApi.stackList()).data;
+      const stackToDelete = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
 
       if (!stackToDelete)
         core.setFailed(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
-      else if (!stackToDelete.id)
+      else if (!stackToDelete.Id)
         core.setFailed(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
       else {
-        const res = await portainerApi.stackDelete(action.endpointId, stackToDelete.id);
+        const res = await portainerApi.stackDelete(action.endpointId, stackToDelete.Id);
         core.info(`Delete result: HTTP ${res.status}`);
       }
     }
@@ -64,17 +61,17 @@ const processAction = ({ action, portainer, repo }: PortainerActionProps): Recor
     } else {
       const portainerApi = makePortainerApi(portainer);
 
-      const list = await portainerApi.stackList();
-      const stackToUpdate = list.find((s) => s.endpointId === action.endpointId && s.name === action.stackName);
+      const list = (await portainerApi.stackList()).data;
+      const stackToUpdate = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
 
-      if (stackToUpdate && !stackToUpdate.id) {
+      if (stackToUpdate && !stackToUpdate.Id) {
         return Promise.reject(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
-      } else if (stackToUpdate && stackToUpdate.id) {
+      } else if (stackToUpdate && stackToUpdate.Id) {
         const body: StacksStackGitRedployPayload = {
           prune: true,
           pullImage: true,
         }
-        const res = await portainerApi.stackGitRedeploy(stackToUpdate.id, body, action.endpointId);
+        const res = await portainerApi.stackGitRedeploy(stackToUpdate.Id, body, action.endpointId);
         core.info(`Update result: HTTP ${res.status}`);
         return Promise.resolve();
       } else {
