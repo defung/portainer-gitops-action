@@ -24,11 +24,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
+const portableFetch = __importStar(require("portable-fetch"));
 const props_1 = require("./props");
 const portainer_1 = require("./portainer");
 const makePortainerApi = ({ apiKey, host }) => {
     const config = new portainer_1.Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-    return (0, portainer_1.StacksApiFactory)(config);
+    return (0, portainer_1.StacksApiFactory)(config, portableFetch);
 };
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {

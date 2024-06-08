@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import fetch from 'node-fetch';
+import * as portableFetch from "portable-fetch";
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
@@ -11,7 +11,7 @@ import {
 
 const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
   const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-  return StacksApiFactory(config, fetch);
+  return StacksApiFactory(config, portableFetch);
 }
 
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
@@ -97,4 +97,3 @@ const run = () => {
 }
 
 run();
-
