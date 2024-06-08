@@ -103,8 +103,9 @@ const run = () => {
         core.setFailed("Failed to parse properties!");
     }
     else {
+        core.info(`Parsed props, processing '${actionProps.action.type}'`);
         const res = processAction(actionProps)[actionProps.action.type]();
-        res.catch((r) => core.setFailed(r ? r.toString() : ''));
+        res.catch((r) => core.setFailed(r ? JSON.stringify(r) : ''));
     }
 };
 run();
