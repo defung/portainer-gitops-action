@@ -11,16 +11,6 @@ const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
   const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api` });
   return StacksApiFactory(config);
 }
-// const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
-//   const config = { apiKey: apiKey, basePath: `${host}/api` };
-//
-//   return {
-//     stackList: async (): Promise<PortainerStack[]> => {
-//       const res = await axios<PortainerStack[]>(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey }});
-//       return res.data;
-//     }
-//   }
-// }
 
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
 
@@ -99,13 +89,8 @@ const run = () => {
   if (!actionProps) {
     core.setFailed("Failed to parse properties!");
   } else {
-    core.info(`Parsed props, processing '${actionProps.action.type}'`);
     const res = processAction(actionProps)[actionProps.action.type]();
-    res.catch((r: Error) => core.setFailed(JSON.stringify({
-      message: r.message,
-      name: r.name,
-      stack: r.stack
-    })))
+    res.catch((r: Error) => core.setFailed(`${r.message}\n${r.stack}`));
   }
 }
 
