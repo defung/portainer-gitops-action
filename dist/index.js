@@ -22,17 +22,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
+const axios_1 = __importDefault(require("axios"));
 const props_1 = require("./props");
 const portainer_1 = require("./portainer");
 const makePortainerApi = ({ apiKey, host }) => {
     const config = new portainer_1.Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
     return (0, portainer_1.StacksApiFactory)(config);
 };
+const makePortainerApi2 = ({ apiKey, host }) => {
+    const config = { apiKey: apiKey, basePath: `${host}/api` };
+    return {
+        stackList: async () => {
+            const res = await (0, axios_1.default)(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey } });
+            return res.data;
+        }
+    };
+};
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {
-        const portainerApi = makePortainerApi(portainer);
+        const portainerApi = makePortainerApi2(portainer);
         const list = await portainerApi.stackList();
         const filtered = list.filter((s) => s.endpointId === action.endpointId);
         const outputStr = JSON.stringify(filtered.map((s) => ({ 'Id': s.id, 'Name': s.name })));

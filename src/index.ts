@@ -1,8 +1,9 @@
 import * as core from '@actions/core';
+import axios from 'axios';
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
-  Configuration,
+  Configuration, PortainerStack,
   StacksApiFactory,
   StacksComposeStackFromGitRepositoryPayload,
   StacksStackGitRedployPayload
@@ -13,10 +14,21 @@ const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
   return StacksApiFactory(config);
 }
 
+const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
+  const config = { apiKey: apiKey, basePath: `${host}/api` };
+
+  return {
+    stackList: async (): Promise<PortainerStack[]> => {
+      const res = await axios<PortainerStack[]>(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey }});
+      return res.data;
+    }
+  }
+}
+
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
 
   [ActionType.List]: async (): Promise<void> => {
-    const portainerApi = makePortainerApi(portainer);
+    const portainerApi = makePortainerApi2(portainer);
 
     const list = await portainerApi.stackList();
     const filtered = list.filter((s) => s.endpointId === action.endpointId);
