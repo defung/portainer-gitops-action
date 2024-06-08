@@ -3,15 +3,15 @@ import axios from 'axios';
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
-  Configuration, PortainerStack,
+  Configuration, PortainerStack, StacksApi,
   StacksApiFactory,
   StacksComposeStackFromGitRepositoryPayload,
   StacksStackGitRedployPayload
 } from "./portainer";
 
-const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
-  const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-  return StacksApiFactory(config);
+const makePortainerApi = ({ apiKey, host }: PortainerProps): StacksApi => {
+  const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api` });
+  return new StacksApi(config);
 }
 
 const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
@@ -28,7 +28,7 @@ const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
 
   [ActionType.List]: async (): Promise<void> => {
-    const portainerApi = makePortainerApi2(portainer);
+    const portainerApi = makePortainerApi(portainer);
 
     const list = await portainerApi.stackList();
     const filtered = list.filter((s) => s.endpointId === action.endpointId);

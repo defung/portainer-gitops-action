@@ -31,8 +31,8 @@ const axios_1 = __importDefault(require("axios"));
 const props_1 = require("./props");
 const portainer_1 = require("./portainer");
 const makePortainerApi = ({ apiKey, host }) => {
-    const config = new portainer_1.Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-    return (0, portainer_1.StacksApiFactory)(config);
+    const config = new portainer_1.Configuration({ apiKey: apiKey, basePath: `${host}/api` });
+    return new portainer_1.StacksApi(config);
 };
 const makePortainerApi2 = ({ apiKey, host }) => {
     const config = { apiKey: apiKey, basePath: `${host}/api` };
@@ -45,7 +45,7 @@ const makePortainerApi2 = ({ apiKey, host }) => {
 };
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {
-        const portainerApi = makePortainerApi2(portainer);
+        const portainerApi = makePortainerApi(portainer);
         const list = await portainerApi.stackList();
         const filtered = list.filter((s) => s.endpointId === action.endpointId);
         const outputStr = JSON.stringify(filtered.map((s) => ({ 'Id': s.id, 'Name': s.name })));
