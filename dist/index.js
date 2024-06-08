@@ -1,9 +1,29 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __importDefault(require("@actions/core"));
+const core = __importStar(require("@actions/core"));
 const props_1 = require("./props");
 const portainer_1 = require("./portainer");
 const makePortainerApi = ({ apiKey, host }) => {
@@ -16,7 +36,7 @@ const processAction = ({ action, portainer, repo }) => ({
         const list = await portainerApi.stackList();
         const filtered = list.filter((s) => s.endpointId === action.endpointId);
         const outputStr = JSON.stringify(filtered.map((s) => ({ 'Id': s.id, 'Name': s.name })));
-        core_1.default.setOutput("stacks", outputStr);
+        core.setOutput("stacks", outputStr);
     },
     [props_1.ActionType.Delete]: async () => {
         if (!action.stackName) {
@@ -27,12 +47,12 @@ const processAction = ({ action, portainer, repo }) => ({
             const list = await portainerApi.stackList();
             const stackToDelete = list.find((s) => s.endpointId === action.endpointId && s.name === action.stackName);
             if (!stackToDelete)
-                core_1.default.setFailed(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+                core.setFailed(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
             else if (!stackToDelete.id)
-                core_1.default.setFailed(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+                core.setFailed(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
             else {
                 const res = await portainerApi.stackDelete(action.endpointId, stackToDelete.id);
-                core_1.default.info(`Delete result: HTTP ${res.status}`);
+                core.info(`Delete result: HTTP ${res.status}`);
             }
         }
     },
@@ -57,7 +77,7 @@ const processAction = ({ action, portainer, repo }) => ({
                     pullImage: true,
                 };
                 const res = await portainerApi.stackGitRedeploy(stackToUpdate.id, body, action.endpointId);
-                core_1.default.info(`Update result: HTTP ${res.status}`);
+                core.info(`Update result: HTTP ${res.status}`);
                 return Promise.resolve();
             }
             else {
@@ -70,7 +90,7 @@ const processAction = ({ action, portainer, repo }) => ({
                     repositoryPassword: (_b = repo.auth) === null || _b === void 0 ? void 0 : _b.password,
                 };
                 const res = await portainerApi.stackCreateDockerStandaloneRepository(action.endpointId, body);
-                core_1.default.info(`Create result: HTTP ${res.status}`);
+                core.info(`Create result: HTTP ${res.status}`);
                 return Promise.resolve();
             }
         }
@@ -79,11 +99,11 @@ const processAction = ({ action, portainer, repo }) => ({
 const run = () => {
     const actionProps = (0, props_1.extractProps)();
     if (!actionProps) {
-        core_1.default.setFailed("Failed to parse properties!");
+        core.setFailed("Failed to parse properties!");
     }
     else {
         const res = processAction(actionProps)[actionProps.action.type]();
-        res.catch((r) => core_1.default.setFailed(r ? r.toString() : ''));
+        res.catch((r) => core.setFailed(r ? r.toString() : ''));
     }
 };
 run();
