@@ -11,7 +11,7 @@ import {
 
 const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
   const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api/` });
-  return StacksApiFactory(config);
+  return StacksApiFactory(config, fetch);
 }
 
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
