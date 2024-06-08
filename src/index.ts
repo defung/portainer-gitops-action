@@ -93,7 +93,11 @@ const run = () => {
   } else {
     core.info(`Parsed props, processing '${actionProps.action.type}'`);
     const res = processAction(actionProps)[actionProps.action.type]();
-    res.catch((r) => core.setFailed(r))
+    res.catch((r: Error) => core.setFailed(JSON.stringify({
+      message: r.message,
+      name: r.name,
+      stack: r.stack
+    })))
   }
 }
 
