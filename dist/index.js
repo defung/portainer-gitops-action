@@ -100,7 +100,8 @@ const AuthApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -291,7 +292,8 @@ const BackupApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -461,7 +463,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (method !== undefined) {
                 localVarQueryParameter['method'] = method;
             }
@@ -516,7 +519,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (title !== undefined) {
                 localVarFormParams.append('Title', title);
             }
@@ -574,7 +578,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -608,7 +613,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -643,7 +649,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -676,7 +683,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -709,7 +717,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -742,7 +751,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -775,7 +785,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (type) {
                 localVarQueryParameter['type'] = type;
             }
@@ -817,7 +828,8 @@ const CustomTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1245,7 +1257,8 @@ const DockerApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -1277,7 +1290,8 @@ const DockerApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (withUsage !== undefined) {
                 localVarQueryParameter['withUsage'] = withUsage;
             }
@@ -1594,7 +1608,8 @@ const EdgeGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1629,7 +1644,8 @@ const EdgeGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -1662,7 +1678,8 @@ const EdgeGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -1691,7 +1708,8 @@ const EdgeGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -1727,7 +1745,8 @@ const EdgeGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1963,7 +1982,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (method !== undefined) {
                 localVarQueryParameter['method'] = method;
             }
@@ -2014,7 +2034,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (file !== undefined) {
                 localVarFormParams.append('file', file);
             }
@@ -2066,7 +2087,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2101,7 +2123,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2134,7 +2157,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2167,7 +2191,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2196,7 +2221,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2233,7 +2259,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2270,7 +2297,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2307,7 +2335,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2340,7 +2369,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -2376,7 +2406,8 @@ const EdgeJobsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2866,7 +2897,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (method !== undefined) {
                 localVarQueryParameter['method'] = method;
             }
@@ -2918,7 +2950,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (dryrun !== undefined) {
                 localVarQueryParameter['dryrun'] = dryrun;
             }
@@ -2980,7 +3013,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (dryrun !== undefined) {
                 localVarQueryParameter['dryrun'] = dryrun;
             }
@@ -3018,7 +3052,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (dryrun !== undefined) {
                 localVarQueryParameter['dryrun'] = dryrun;
             }
@@ -3056,7 +3091,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3089,7 +3125,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3122,7 +3159,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3151,7 +3189,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3255,7 +3294,8 @@ const EdgeStacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -3790,7 +3830,8 @@ const EdgeTemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3897,7 +3938,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3930,7 +3972,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3967,7 +4010,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -3996,7 +4040,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4032,7 +4077,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4067,7 +4113,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4099,7 +4146,8 @@ const EndpointGroupsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4402,7 +4450,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4456,7 +4505,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (name !== undefined) {
                 localVarFormParams.append('Name', name);
             }
@@ -4570,7 +4620,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4607,7 +4658,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4640,7 +4692,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4676,7 +4729,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4711,7 +4765,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4758,7 +4813,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (start !== undefined) {
                 localVarQueryParameter['start'] = start;
             }
@@ -4846,7 +4902,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (namespace !== undefined) {
                 localVarQueryParameter['namespace'] = namespace;
             }
@@ -4889,7 +4946,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4927,7 +4985,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4962,7 +5021,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -4991,7 +5051,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -5027,7 +5088,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -5059,7 +5121,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -5102,7 +5165,8 @@ const EndpointsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (volumeID !== undefined) {
                 localVarQueryParameter['volumeID'] = volumeID;
             }
@@ -5989,7 +6053,8 @@ const GitopsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6099,7 +6164,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (namespace !== undefined) {
                 localVarQueryParameter['namespace'] = namespace;
             }
@@ -6138,7 +6204,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6176,7 +6243,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (namespace !== undefined) {
                 localVarQueryParameter['namespace'] = namespace;
             }
@@ -6217,7 +6285,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (repo !== undefined) {
                 localVarQueryParameter['repo'] = repo;
             }
@@ -6259,7 +6328,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (repo !== undefined) {
                 localVarQueryParameter['repo'] = repo;
             }
@@ -6298,7 +6368,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -6332,7 +6403,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -6368,7 +6440,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6407,7 +6480,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6446,7 +6520,8 @@ const HelmApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -6870,7 +6945,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -6901,7 +6977,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -6939,7 +7016,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6979,7 +7057,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -7012,7 +7091,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7042,7 +7122,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -7078,7 +7159,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -7107,7 +7189,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7138,7 +7221,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7165,7 +7249,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7192,7 +7277,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7223,7 +7309,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7253,7 +7340,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -7286,7 +7374,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7317,7 +7406,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7348,7 +7438,8 @@ const IntelApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -7941,7 +8032,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -7979,7 +8071,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8021,7 +8114,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8059,7 +8153,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8098,7 +8193,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8134,7 +8230,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8167,7 +8264,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (ids) {
                 localVarQueryParameter['ids'] = ids;
             }
@@ -8211,7 +8309,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8245,7 +8344,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (allowedOnly !== undefined) {
                 localVarQueryParameter['allowedOnly'] = allowedOnly;
             }
@@ -8285,7 +8385,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8325,7 +8426,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8360,7 +8462,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8397,7 +8500,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8434,7 +8538,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8475,7 +8580,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8512,7 +8618,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8545,7 +8652,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8578,7 +8686,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -8616,7 +8725,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (lookupapplications !== undefined) {
                 localVarQueryParameter['lookupapplications'] = lookupapplications;
             }
@@ -8659,7 +8769,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8701,7 +8812,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8739,7 +8851,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8781,7 +8894,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8823,7 +8937,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8865,7 +8980,8 @@ const KubernetesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9836,7 +9952,8 @@ const LdapApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9937,7 +10054,8 @@ const MotdApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10037,7 +10155,8 @@ const RbacEnabledApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10143,7 +10262,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10177,7 +10297,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10212,7 +10333,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10245,7 +10367,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10274,7 +10397,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10310,7 +10434,8 @@ const RegistriesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10577,7 +10702,8 @@ const ResourceControlsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10612,7 +10738,8 @@ const ResourceControlsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10648,7 +10775,8 @@ const ResourceControlsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10816,7 +10944,8 @@ const RolesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10912,7 +11041,8 @@ const SettingsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -10969,7 +11099,8 @@ const SettingsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -11128,7 +11259,8 @@ const SslApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -11160,7 +11292,8 @@ const SslApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -11303,7 +11436,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11354,7 +11488,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (type !== undefined) {
                 localVarQueryParameter['type'] = type;
             }
@@ -11403,7 +11538,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11452,7 +11588,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11492,7 +11629,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11534,7 +11672,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11586,7 +11725,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11626,7 +11766,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11666,7 +11807,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11706,7 +11848,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11746,7 +11889,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11788,7 +11932,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (external !== undefined) {
                 localVarQueryParameter['external'] = external;
             }
@@ -11831,7 +11976,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (external !== undefined) {
                 localVarQueryParameter['external'] = external;
             }
@@ -11870,7 +12016,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -11907,7 +12054,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -11945,7 +12093,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -11975,7 +12124,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (filters !== undefined) {
                 localVarQueryParameter['filters'] = filters;
             }
@@ -12015,7 +12165,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -12056,7 +12207,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -12095,7 +12247,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -12137,7 +12290,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -12179,7 +12333,8 @@ const StacksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -13148,7 +13303,8 @@ const StatusApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13178,7 +13334,8 @@ const StatusApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13341,7 +13498,8 @@ const SystemApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13370,7 +13528,8 @@ const SystemApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13449,7 +13608,8 @@ const SystemApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13664,7 +13824,8 @@ const TagsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -13699,7 +13860,8 @@ const TagsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13728,7 +13890,8 @@ const TagsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13891,7 +14054,8 @@ const TeamMembershipsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -13926,7 +14090,8 @@ const TeamMembershipsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13955,7 +14120,8 @@ const TeamMembershipsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -13991,7 +14157,8 @@ const TeamMembershipsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14026,7 +14193,8 @@ const TeamMembershipsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -14256,7 +14424,8 @@ const TeamsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14291,7 +14460,8 @@ const TeamsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -14324,7 +14494,8 @@ const TeamsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -14355,7 +14526,8 @@ const TeamsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (onlyLedTeams !== undefined) {
                 localVarQueryParameter['onlyLedTeams'] = onlyLedTeams;
             }
@@ -14397,7 +14569,8 @@ const TeamsApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14636,7 +14809,8 @@ const TemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -14669,7 +14843,8 @@ const TemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14700,7 +14875,8 @@ const TemplatesApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -14874,7 +15050,8 @@ const UploadApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (folder !== undefined) {
                 localVarFormParams.append('folder', folder);
             }
@@ -14987,7 +15164,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15074,7 +15252,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15109,7 +15288,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15143,7 +15323,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15178,7 +15359,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15211,7 +15393,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15241,7 +15424,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (environmentId !== undefined) {
                 localVarQueryParameter['environmentId'] = environmentId;
             }
@@ -15277,7 +15461,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15314,7 +15499,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15350,7 +15536,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15388,7 +15575,8 @@ const UsersApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15880,7 +16068,8 @@ const WebhooksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (filters !== undefined) {
                 localVarQueryParameter['filters'] = filters;
             }
@@ -15916,7 +16105,8 @@ const WebhooksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -15981,7 +16171,8 @@ const WebhooksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -16015,7 +16206,8 @@ const WebhooksApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -16254,7 +16446,8 @@ const WebsocketApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -16299,7 +16492,8 @@ const WebsocketApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -16343,7 +16537,8 @@ const WebsocketApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -16396,7 +16591,8 @@ const WebsocketApiAxiosParamCreator = function (configuration) {
             // authentication ApiKeyAuth required
             await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "X-API-KEY", configuration);
             // authentication jwt required
-            await (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "Authorization", configuration);
+            // http bearer authentication required
+            await (0, common_1.setBearerAuthToObject)(localVarHeaderParameter, configuration);
             if (endpointId !== undefined) {
                 localVarQueryParameter['endpointId'] = endpointId;
             }
@@ -16962,7 +17158,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const props_1 = __nccwpck_require__(8192);
 const portainer_ce_2_20_3_1 = __nccwpck_require__(679);
 const makePortainerApi = ({ apiKey, host }) => {
-    const config = new portainer_ce_2_20_3_1.Configuration({ accessToken: apiKey, basePath: `${host}/api` });
+    const config = new portainer_ce_2_20_3_1.Configuration({ apiKey: apiKey, basePath: `${host}/api` });
     return new portainer_ce_2_20_3_1.StacksApi(config);
 };
 const processAction = ({ action, portainer, repo }) => ({
