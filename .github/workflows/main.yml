@@ -23,11 +23,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Test List Stacks
-        uses: ./
-        with:
-          action: list
-          portainer-host: ${{ secrets.PORTAINER_HOST }}
-          portainer-api-key: ${{ secrets.PORTAINER_API_KEY }}
-          github-pat: ${{ secrets.GH_PAT }}
-          endpoint-id: 3
+      - name: Build Dist
+        run: |
+          npm run ci
+          npm run codegen
+          npm run build
+
+      - name: Commit Dist
+        if: github.event_name == 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: commit-dist

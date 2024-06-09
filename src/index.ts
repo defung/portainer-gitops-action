@@ -8,7 +8,7 @@ import {
 } from "./generated-sources/portainer-ce-2.20.3";
 
 const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
-  const config = new Configuration({ accessToken: apiKey, basePath: `${host}/api` });
+  const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api` });
   return new StacksApi(config);
 }
 
