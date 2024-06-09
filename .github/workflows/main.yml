@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Dist
         run: |
-          npm run ci
+          npm ci
           npm run codegen
           npm run build
 
