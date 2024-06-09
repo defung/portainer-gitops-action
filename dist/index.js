@@ -16962,8 +16962,8 @@ const core = __importStar(__nccwpck_require__(2186));
 const props_1 = __nccwpck_require__(8192);
 const portainer_ce_2_20_3_1 = __nccwpck_require__(679);
 const makePortainerApi = ({ apiKey, host }) => {
-    const config = new portainer_ce_2_20_3_1.Configuration({ apiKey: apiKey, basePath: `${host}/api` });
-    return (0, portainer_ce_2_20_3_1.StacksApiFactory)(config);
+    const config = new portainer_ce_2_20_3_1.Configuration({ accessToken: apiKey, basePath: `${host}/api` });
+    return new portainer_ce_2_20_3_1.StacksApi(config);
 };
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {

@@ -2,14 +2,14 @@ import * as core from '@actions/core';
 
 import {ActionType, extractProps, PortainerActionProps, PortainerProps} from "./props";
 import {
-  Configuration,
-  StacksApiFactory, StacksComposeStackFromGitRepositoryPayload,
+  Configuration, StacksApi,
+  StacksComposeStackFromGitRepositoryPayload,
   StacksStackGitRedployPayload
 } from "./generated-sources/portainer-ce-2.20.3";
 
 const makePortainerApi = ({ apiKey, host }: PortainerProps) => {
-  const config = new Configuration({ apiKey: apiKey, basePath: `${host}/api` });
-  return StacksApiFactory(config);
+  const config = new Configuration({ accessToken: apiKey, basePath: `${host}/api` });
+  return new StacksApi(config);
 }
 
 const processAction = ({ action, portainer, repo }: PortainerActionProps): Record<ActionType, () => Promise<void>> => ({
