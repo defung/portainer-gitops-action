@@ -16965,16 +16965,6 @@ const makePortainerApi = ({ apiKey, host }) => {
     const config = new portainer_ce_2_20_3_1.Configuration({ apiKey: apiKey, basePath: `${host}/api` });
     return (0, portainer_ce_2_20_3_1.StacksApiFactory)(config);
 };
-// const makePortainerApi2 = ({ apiKey, host }: PortainerProps) => {
-//   const config = { apiKey: apiKey, basePath: `${host}/api` };
-//
-//   return {
-//     stackList: async (): Promise<PortainerStack[]> => {
-//       const res = await axios<PortainerStack[]>(`${config.basePath}/stacks`, { headers: { 'X-API-KEY': apiKey }});
-//       return res.data;
-//     }
-//   }
-// }
 const processAction = ({ action, portainer, repo }) => ({
     [props_1.ActionType.List]: async () => {
         const portainerApi = makePortainerApi(portainer);
@@ -17047,13 +17037,8 @@ const run = () => {
         core.setFailed("Failed to parse properties!");
     }
     else {
-        core.info(`Parsed props, processing '${actionProps.action.type}'`);
         const res = processAction(actionProps)[actionProps.action.type]();
-        res.catch((r) => core.setFailed(JSON.stringify({
-            message: r.message,
-            name: r.name,
-            stack: r.stack
-        })));
+        res.catch((r) => core.setFailed(`${r.message}\n${r.stack}`));
     }
 };
 run();
