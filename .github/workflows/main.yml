@@ -8,10 +8,10 @@ name: Test
 on:
   pull_request:
     branches: [ "main" ]
-  
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
@@ -22,12 +22,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Test List Stacks
-        uses: ./
         with:
-          action: list
-          portainer-host: ${{ secrets.PORTAINER_HOST }}
-          portainer-api-key: ${{ secrets.PORTAINER_API_KEY }}
-          github-pat: ${{ secrets.GH_PAT }}
-          endpoint-id: 3
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Dist
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit Dist
+        if: github.event_name == 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: commit-dist

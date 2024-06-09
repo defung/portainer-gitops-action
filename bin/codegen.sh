@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+INPUT_DIR="./openapi"
+OUTPUT_DIR="./src/generated-sources"
+
+rm -rf "${OUTPUT_DIR}"
+
+for filename in "$INPUT_DIR"/*.yml; do
+  BASE="${filename##*/}"
+  FNAME="${BASE%.*}"
+
+  docker run -it --rm -v "$(pwd):/workspace" --workdir "/workspace" openapitools/openapi-generator-cli generate \
+    -i "$filename" \
+    -o "$OUTPUT_DIR/$FNAME" \
+    -g typescript-axios \
+    --additional-properties=supportsES6=true,typescriptThreePlus=true
+done
+
