@@ -28,15 +28,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Use Docker
-        uses: actions-hub/docker/cli@v1.0.3
-        env:
-          SKIP_LOGIN: true
-
       - name: Build Dist
         run: |
           npm ci
-          npm run codegen
           npm run build
 
       - name: Commit Dist
