@@ -57,8 +57,12 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          action: list
+          endpoint-id: 3
+          portainer-host: ${{ secrets.PORTAINER_HOST }}
+          portainer-api-key: ${{ secrets.PORTAINER_API_KEY }}
+          github-pat: ${{ secrets.GH_PAT }}
 
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
+        run: echo "${{ steps.test-action.outputs.stacks }}"

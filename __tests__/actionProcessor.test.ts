@@ -2,125 +2,128 @@
  * Unit tests for the action's entrypoint, src/index.ts
  */
 
-import * as actionProcessor from "../src/actionProcessor";
-import axios, { Axios, AxiosInstance, AxiosRequestConfig } from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
+// eslint-disable-next-line filenames/match-regex
+import * as actionProcessor from '../src/actionProcessor'
+import axios from 'axios'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import AxiosMockAdapter from 'axios-mock-adapter'
 import {
   ActionType,
   PortainerActionProps,
   PortainerProps,
-  RepoProps,
-} from "../src/props";
-import { PortainerStack } from "../src/generated-sources/portainer-ce-2.20.3";
+  RepoProps
+} from '../src/props'
+import { PortainerStack } from '../src/generated-sources/portainer-ce-2.20.3'
 
-const baseUrl = "http://localhost:8000";
-const apiKey = "super-secret-api-key";
+const baseUrl = 'http://localhost:8000'
+const apiKey = 'super-secret-api-key'
 
 const portainerProps: PortainerProps = {
   host: baseUrl,
-  apiKey,
-};
+  apiKey
+}
 
 const repoProps: RepoProps = {
-  url: "https://github.com/defung/docker",
+  url: 'https://github.com/defung/docker',
   auth: {
-    username: "defung",
-    password: "super-secret-gh-pat",
-  },
-};
+    username: 'defung',
+    password: 'super-secret-gh-pat'
+  }
+}
 
 const baseProps = {
   portainer: portainerProps,
-  repo: repoProps,
-};
+  repo: repoProps
+}
 
 const listProps: PortainerActionProps = {
   ...baseProps,
   action: {
     type: ActionType.List,
-    endpointId: 1,
-  },
-};
+    endpointId: 1
+  }
+}
 
 const upsertProps: PortainerActionProps = {
   ...baseProps,
   action: {
     type: ActionType.Upsert,
     endpointId: 1,
-    stackName: "myStack",
-    composeFilePath: "myStack/docker-compose.yml",
-  },
-};
+    stackName: 'myStack',
+    composeFilePath: 'myStack/docker-compose.yml'
+  }
+}
 
 const deleteProps: PortainerActionProps = {
   ...baseProps,
   action: {
     type: ActionType.Delete,
     endpointId: 1,
-    stackName: "myStack",
-  },
-};
+    stackName: 'myStack'
+  }
+}
 
 const createMockAxios = (
-  listRes: PortainerStack[],
+  listRes: PortainerStack[]
 ): [AxiosInstance, AxiosMockAdapter] => {
-  const axiosInstance = axios.create();
-  const mockAxios = new AxiosMockAdapter(axiosInstance);
+  const axiosInstance = axios.create()
+  const mockAxios = new AxiosMockAdapter(axiosInstance)
 
   mockAxios
     .onGet(
-      "http://localhost:8000/api/stacks?filters=%7B%22EndpointId%22%3A1%7D",
+      'http://localhost:8000/api/stacks?filters=%7B%22EndpointId%22%3A1%7D'
     )
-    .reply(200, listRes);
+    .reply(200, listRes)
 
-  return [axiosInstance, mockAxios];
-};
+  return [axiosInstance, mockAxios]
+}
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getHeaders = (req: AxiosRequestConfig<any>): Map<string, string> => {
-  const requestJson = JSON.parse(JSON.stringify(req));
-  return new Map<string, string>(Object.entries(requestJson.headers ?? {}));
-};
+  const requestJson = JSON.parse(JSON.stringify(req))
+  return new Map<string, string>(Object.entries(requestJson.headers ?? {}))
+}
 
-describe("actionProcessor", () => {
+describe('actionProcessor', () => {
   it('properly handles "List" action', async () => {
     const [axiosInstance, mockAxios] = createMockAxios([
-      { Name: "stack1", Id: 100, EndpointId: 1 },
-    ]);
+      { Name: 'stack1', Id: 100, EndpointId: 1 }
+    ])
 
-    await actionProcessor
-      .processAction(listProps, axiosInstance)
-      .catch((e) => console.log(JSON.stringify(e)));
+    await actionProcessor.processAction(listProps, axiosInstance)
 
-    const getHistory = mockAxios.history.get;
+    const getHistory = mockAxios.history.get
 
-    expect(getHistory).toHaveLength(1);
+    expect(getHistory).toHaveLength(1)
 
-    const request = getHistory[0];
-    const requestHeaders = getHeaders(request);
+    const request = getHistory[0]
+    const requestHeaders = getHeaders(request)
 
-    expect(requestHeaders.get("X-API-KEY")).toBe(apiKey);
-    expect(requestHeaders.get("Authorization")).toBe(undefined);
+    expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)
+    expect(requestHeaders.get('Authorization')).toBe(undefined)
     expect(request.url).toBe(
-      "http://localhost:8000/api/stacks?filters=%7B%22EndpointId%22%3A1%7D",
-    );
-    expect(requestHeaders.size).toBeGreaterThanOrEqual(1);
+      'http://localhost:8000/api/stacks?filters=%7B%22EndpointId%22%3A1%7D'
+    )
+    expect(requestHeaders.size).toBeGreaterThanOrEqual(1)
   })
 
   it('properly handles "Upsert" action: Create', async () => {
     const [axiosInstance, mockAxios] = createMockAxios([
-      { Name: "stack1", Id: 100, EndpointId: 1 },
-    ]);
+      { Name: 'stack1', Id: 100, EndpointId: 1 }
+    ])
 
-    await actionProcessor
-      .processAction(upsertProps, axiosInstance)
-      .catch((e) => console.log(JSON.stringify(e)));
+    mockAxios
+      .onPost('http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1')
+      .reply(200, {})
 
-    const postHistory = mockAxios.history.post;
+    await actionProcessor.processAction(upsertProps, axiosInstance)
 
-    expect(postHistory).toHaveLength(1);
+    const postHistory = mockAxios.history.post
 
-    const request = postHistory[0];
-    const requestHeaders = getHeaders(request);
+    expect(postHistory).toHaveLength(1)
+
+    const request = postHistory[0]
+    const requestHeaders = getHeaders(request)
 
     const expectedRequestBody = {
       name: upsertProps.action.stackName,
@@ -128,71 +131,75 @@ describe("actionProcessor", () => {
       repositoryURL: upsertProps.repo.url,
       repositoryAuthentication: upsertProps.repo.auth !== undefined,
       repositoryUsername: upsertProps.repo.auth?.username,
-      repositoryPassword: upsertProps.repo.auth?.password,
-    };
+      repositoryPassword: upsertProps.repo.auth?.password
+    }
 
-    expect(requestHeaders.get("X-API-KEY")).toBe(apiKey);
-    expect(requestHeaders.get("Authorization")).toBe(undefined);
+    expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)
+    expect(requestHeaders.get('Authorization')).toBe(undefined)
     expect(request.url).toBe(
-      "http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1",
-    );
-    expect(JSON.parse(request.data)).toMatchObject(expectedRequestBody);
+      'http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1'
+    )
+    expect(JSON.parse(request.data)).toMatchObject(expectedRequestBody)
   })
 
   it('properly handles "Upsert" action: Update', async () => {
     const [axiosInstance, mockAxios] = createMockAxios([
-      { Name: "stack1", Id: 100, EndpointId: 1 },
-      { Name: "myStack", Id: 101, EndpointId: 1 },
-    ]);
+      { Name: 'stack1', Id: 100, EndpointId: 1 },
+      { Name: 'myStack', Id: 101, EndpointId: 1 }
+    ])
 
-    await actionProcessor
-      .processAction(upsertProps, axiosInstance)
-      .catch((e) => console.log(JSON.stringify(e)));
+    mockAxios
+      .onPut('http://localhost:8000/api/stacks/101/git/redeploy?endpointId=1')
+      .reply(200, {})
 
-    const putHistory = mockAxios.history.put;
+    await actionProcessor.processAction(upsertProps, axiosInstance)
 
-    expect(putHistory).toHaveLength(1);
+    const putHistory = mockAxios.history.put
 
-    const request = putHistory[0];
-    const requestHeaders = getHeaders(request);
+    expect(putHistory).toHaveLength(1)
+
+    const request = putHistory[0]
+    const requestHeaders = getHeaders(request)
 
     const expectedRequestBody = {
       prune: true,
       pullImage: true,
       repositoryAuthentication: upsertProps.repo.auth !== undefined,
       repositoryUsername: upsertProps.repo.auth?.username,
-      repositoryPassword: upsertProps.repo.auth?.password,
-    };
+      repositoryPassword: upsertProps.repo.auth?.password
+    }
 
-    expect(requestHeaders.get("X-API-KEY")).toBe(apiKey);
-    expect(requestHeaders.get("Authorization")).toBe(undefined);
+    expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)
+    expect(requestHeaders.get('Authorization')).toBe(undefined)
     expect(request.url).toBe(
-      "http://localhost:8000/api/stacks/101/git/redeploy?endpointId=1",
-    );
-    expect(JSON.parse(request.data)).toMatchObject(expectedRequestBody);
+      'http://localhost:8000/api/stacks/101/git/redeploy?endpointId=1'
+    )
+    expect(JSON.parse(request.data)).toMatchObject(expectedRequestBody)
   })
 
   it('properly handles "Delete" action: Found Stack', async () => {
     const [axiosInstance, mockAxios] = createMockAxios([
-      { Name: "stack1", Id: 100, EndpointId: 1 },
-      { Name: "myStack", Id: 101, EndpointId: 1 },
-    ]);
+      { Name: 'stack1', Id: 100, EndpointId: 1 },
+      { Name: 'myStack', Id: 101, EndpointId: 1 }
+    ])
 
-    await actionProcessor
-      .processAction(deleteProps, axiosInstance)
-      .catch((e) => console.log(JSON.stringify(e)));
+    mockAxios
+      .onDelete('http://localhost:8000/api/stacks/101?endpointId=1')
+      .reply(200, {})
 
-    const deleteHistory = mockAxios.history.delete;
+    await actionProcessor.processAction(deleteProps, axiosInstance)
 
-    expect(deleteHistory).toHaveLength(1);
+    const deleteHistory = mockAxios.history.delete
 
-    const request = deleteHistory[0];
-    const requestHeaders = getHeaders(request);
+    expect(deleteHistory).toHaveLength(1)
 
-    expect(requestHeaders.get("X-API-KEY")).toBe(apiKey);
-    expect(requestHeaders.get("Authorization")).toBe(undefined);
+    const request = deleteHistory[0]
+    const requestHeaders = getHeaders(request)
+
+    expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)
+    expect(requestHeaders.get('Authorization')).toBe(undefined)
     expect(request.url).toBe(
-      "http://localhost:8000/api/stacks/101?endpointId=1",
-    );
+      'http://localhost:8000/api/stacks/101?endpointId=1'
+    )
   })
-});
+})

@@ -2,19 +2,20 @@
   "name": "portainer-gitops-action",
   "description": "Perform GitOps actions against a Portainer instance",
   "version": "0.0.1",
-  "author": "defung",
-  "license": "MIT",
-  "homepage": "https://github.com/defung/portainer-gitops-action#readme",
+  "author": "",
+  "private": true,
+  "homepage": "https://github.com/actions/typescript-action",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/defung/portainer-gitops-action.git"
+    "url": "git+https://github.com/actions/typescript-action.git"
   },
   "bugs": {
-    "url": "https://github.com/defung/portainer-gitops-action/issues"
+    "url": "https://github.com/actions/typescript-action/issues"
   },
   "keywords": [
-    "portainer",
-    "stack"
+    "actions",
+    "node",
+    "setup"
   ],
   "exports": {
     ".": "./dist/index.js"
@@ -22,7 +23,6 @@
   "engines": {
     "node": ">=20"
   },
-  "main": "src/index.js",
   "scripts": {
     "bundle": "npm run format:write && npm run package",
     "ci-test": "npx jest",
@@ -34,9 +34,9 @@
     "package:watch": "npm run package -- --watch",
     "test": "npx jest",
     "all": "npm run format:write && npm run lint && npm run test && npm run coverage && npm run package",
-    "codegen": "./script/codegen",
-    "build": "tsc && ncc build lib/index.js && rm -rf lib"
+    "codegen": "./script/codegen"
   },
+  "license": "MIT",
   "jest": {
     "preset": "ts-jest",
     "verbose": true,
@@ -52,6 +52,7 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/dist/",
+      "/openapi/",
       "/src/generated-sources/"
     ],
     "transform": {
@@ -72,7 +73,6 @@
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@actions/github": "^6.0.0",
     "axios": "^1.7.2"
   },
   "devDependencies": {

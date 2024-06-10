@@ -30,8 +30,8 @@ inputs:
 
 outputs:
   stacks:
-    description: JSON array of stacks
+    description: JSON array of stacks, if action='list'
 
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: node20
+  main: dist/index.js
