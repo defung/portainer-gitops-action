@@ -1,5 +1,7 @@
 name: 'Portainer GitOps Action'
 description: 'Perform GitOps actions against a Portainer instance'
+author: 'defung'
+
 inputs:
   portainer-host:
     description: portainer host (include scheme, domain, and port)
@@ -28,8 +30,8 @@ inputs:
 
 outputs:
   stacks:
-    description: JSON array of stacks
+    description: JSON array of stacks, if action='list'
 
 runs:
-  using: 'node20'
-  main: 'dist/index.js'
+  using: node20
+  main: dist/index.js
