@@ -1590,7 +1590,7 @@ class HttpClient {
         if (this._keepAlive && useProxy) {
             agent = this._proxyAgent;
         }
-        if (!useProxy) {
+        if (this._keepAlive && !useProxy) {
             agent = this._agent;
         }
         // if agent is already assigned use that agent.
@@ -1622,11 +1622,15 @@ class HttpClient {
             agent = tunnelAgent(agentOptions);
             this._proxyAgent = agent;
         }
-        // if tunneling agent isn't assigned create a new agent
-        if (!agent) {
+        // if reusing agent across request and tunneling agent isn't assigned create a new agent
+        if (this._keepAlive && !agent) {
             const options = { keepAlive: this._keepAlive, maxSockets };
             agent = usingSsl ? new https.Agent(options) : new http.Agent(options);
             this._agent = agent;
+        }
+        // if not using private agent and tunnel agent isn't setup then use global agent
+        if (!agent) {
+            agent = usingSsl ? https.globalAgent : http.globalAgent;
         }
         if (usingSsl && this._ignoreSslError) {
             // we don't want to set NODE_TLS_REJECT_UNAUTHORIZED=0 since that will affect request for entire process
@@ -3252,11 +3256,11 @@ function getDate() {
 }
 
 /**
- * Invokes `util.formatWithOptions()` with the specified arguments and writes to stderr.
+ * Invokes `util.format()` with the specified arguments and writes to stderr.
  */
 
 function log(...args) {
-	return process.stderr.write(util.formatWithOptions(exports.inspectOpts, ...args) + '\n');
+	return process.stderr.write(util.format(...args) + '\n');
 }
 
 /**
@@ -28448,27 +28452,35 @@ exports.processAction = void 0;
 const props_1 = __nccwpck_require__(7609);
 const core = __importStar(__nccwpck_require__(2186));
 const portainer_ce_2_20_3_1 = __nccwpck_require__(4470);
+const missingPropError = (msg) => ({
+    name: 'MissingPropError',
+    message: msg
+});
+const parseResponseError = (msg) => ({
+    name: 'ParseResponseError',
+    message: msg
+});
+const stackNotFoundError = (msg) => ({
+    name: 'StackNotFoundError',
+    message: msg
+});
 const processList = async (stacksApi, action) => {
-    return stacksApi
-        .stackList(JSON.stringify({ EndpointId: action.endpointId }))
-        .then((res) => res.data)
-        .then((list) => {
-        const outputStr = JSON.stringify(list.map((s) => ({ 'Id': s.Id, 'Name': s.Name })));
-        core.setOutput("stacks", outputStr);
-    });
+    const res = await stacksApi.stackList(JSON.stringify({ EndpointId: action.endpointId }));
+    const outputStr = JSON.stringify(res.data.map(s => ({ Id: s.Id, Name: s.Name })));
+    return core.setOutput('stacks', outputStr);
 };
 const processUpsert = async (stacksApi, action, repo) => {
     if (!action.stackName) {
-        return Promise.reject("'stack-name' missing!");
+        return Promise.reject(missingPropError("'stack-name' missing!"));
     }
     else if (!repo.url) {
-        return Promise.reject("'repo-url' missing!");
+        return Promise.reject(missingPropError("'repo-url' missing!"));
     }
     else {
         const list = (await stacksApi.stackList(JSON.stringify({ EndpointId: action.endpointId }))).data;
-        const stackToUpdate = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
+        const stackToUpdate = list.find(s => s.EndpointId === action.endpointId && s.Name === action.stackName);
         if (stackToUpdate && !stackToUpdate.Id) {
-            return Promise.reject(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+            return Promise.reject(parseResponseError(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`));
         }
         else if (stackToUpdate && stackToUpdate.Id) {
             const body = {
@@ -28476,11 +28488,10 @@ const processUpsert = async (stacksApi, action, repo) => {
                 pullImage: true,
                 repositoryAuthentication: repo.auth !== undefined,
                 repositoryUsername: repo.auth?.username,
-                repositoryPassword: repo.auth?.password,
+                repositoryPassword: repo.auth?.password
             };
-            return stacksApi
-                .stackGitRedeploy(stackToUpdate.Id, body, action.endpointId)
-                .then((res) => core.info(`Update result: HTTP ${res.status}`));
+            const res = await stacksApi.stackGitRedeploy(stackToUpdate.Id, body, action.endpointId);
+            return core.info(`Update result: HTTP ${res.status}`);
         }
         else {
             const body = {
@@ -28489,34 +28500,32 @@ const processUpsert = async (stacksApi, action, repo) => {
                 repositoryURL: repo.url,
                 repositoryAuthentication: repo.auth !== undefined,
                 repositoryUsername: repo.auth?.username,
-                repositoryPassword: repo.auth?.password,
+                repositoryPassword: repo.auth?.password
             };
-            return stacksApi
-                .stackCreateDockerStandaloneRepository(action.endpointId, body)
-                .then((res) => core.info(`Create result: HTTP ${res.status}`));
+            const res = await stacksApi.stackCreateDockerStandaloneRepository(action.endpointId, body);
+            return core.info(`Create result: HTTP ${res.status}`);
         }
     }
 };
 const processDelete = async (stacksApi, action) => {
     if (!action.stackName) {
-        return Promise.reject("'stack-name' missing!");
+        return Promise.reject(missingPropError("'stack-name' missing!"));
     }
     else {
         const list = (await stacksApi.stackList(JSON.stringify({ EndpointId: action.endpointId }))).data;
-        const stackToDelete = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
+        const stackToDelete = list.find(s => s.EndpointId === action.endpointId && s.Name === action.stackName);
         if (!stackToDelete) {
-            return Promise.reject(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+            return Promise.reject(stackNotFoundError(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`));
         }
         else if (!stackToDelete.Id)
-            return Promise.reject(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+            return Promise.reject(parseResponseError(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`));
         else {
-            return stacksApi
-                .stackDelete(stackToDelete.Id, action.endpointId)
-                .then((res) => core.info(`Delete result: HTTP ${res.status}`));
+            const res = await stacksApi.stackDelete(stackToDelete.Id, action.endpointId);
+            return core.info(`Delete result: HTTP ${res.status}`);
         }
     }
 };
-const processAction = ({ action, portainer, repo }, axios) => {
+const processAction = async ({ action, portainer, repo }, axios) => {
     const config = new portainer_ce_2_20_3_1.Configuration({ apiKey: portainer.apiKey });
     const stacksApi = new portainer_ce_2_20_3_1.StacksApi(config, `${portainer.host}/api`, axios);
     switch (action.type) {
@@ -45747,7 +45756,7 @@ const propsParseError = {
     message: 'Failed to parse properties!',
     name: 'PropsParseError'
 };
-const handleFailure = (err) => {
+const handleFailure = async (err) => {
     const errStr = JSON.stringify(err, null, 2);
     core.setFailed(errStr);
     return Promise.reject(errStr);
@@ -45758,8 +45767,13 @@ const run = async () => {
         return handleFailure(propsParseError);
     }
     else {
-        return (0, actionProcessor_1.processAction)(actionProps)
-            .catch(handleFailure);
+        // eslint-disable-next-line github/no-then
+        try {
+            return await (0, actionProcessor_1.processAction)(actionProps);
+        }
+        catch (e) {
+            return handleFailure(e);
+        }
     }
 };
 exports.run = run;
@@ -45804,7 +45818,7 @@ var ActionType;
     ActionType["Upsert"] = "upsert";
     ActionType["Delete"] = "delete";
 })(ActionType || (exports.ActionType = ActionType = {}));
-const toActionType = (str) => Object.values(ActionType).find((a) => a.valueOf() === str);
+const toActionType = (str) => Object.values(ActionType).find(a => a.valueOf() === str);
 const toNumber = (str) => {
     const num = Number(str);
     return Number.isNaN(num) ? undefined : num;
@@ -45820,8 +45834,8 @@ const props = {
     },
     getRequiredStr: (propName) => props.getRequired(propName, (str) => str),
     getRequiredByAction: (propName, currentAction, requiredFor, validate) => {
-        const required = requiredFor.find((r) => r === currentAction) !== undefined;
-        const str = core.getInput(propName, { required: required });
+        const required = requiredFor.find(r => r === currentAction) !== undefined;
+        const str = core.getInput(propName, { required });
         if (!str)
             return undefined;
         else {
@@ -45832,31 +45846,38 @@ const props = {
                 return validated;
         }
     },
-    getRequiredByActionStr: (propName, currentAction, requiredFor) => props.getRequiredByAction(propName, currentAction, requiredFor, (str) => str),
+    getRequiredByActionStr: (propName, currentAction, requiredFor) => props.getRequiredByAction(propName, currentAction, requiredFor, (str) => str)
 };
 const extractProps = () => {
-    const actionType = props.getRequired("action", toActionType);
+    const actionType = props.getRequired('action', toActionType);
     const authUsername = core.getInput('repo-username');
     const authPassword = core.getInput('repo-password');
-    const auth = !authUsername || !authPassword ? undefined : {
-        username: authUsername,
-        password: authPassword,
-    };
+    const auth = !authUsername || !authPassword
+        ? undefined
+        : {
+            username: authUsername,
+            password: authPassword
+        };
     return {
         action: {
             type: actionType,
-            endpointId: props.getRequired("endpoint-id", toNumber),
-            stackName: props.getRequiredByActionStr("stack-name", actionType, [ActionType.Upsert, ActionType.Delete]),
-            composeFilePath: props.getRequiredByActionStr('repo-compose-file-path', actionType, [ActionType.Upsert]),
+            endpointId: props.getRequired('endpoint-id', toNumber),
+            stackName: props.getRequiredByActionStr('stack-name', actionType, [
+                ActionType.Upsert,
+                ActionType.Delete
+            ]),
+            composeFilePath: props.getRequiredByActionStr('repo-compose-file-path', actionType, [ActionType.Upsert])
         },
         portainer: {
-            host: props.getRequiredStr("portainer-host"),
-            apiKey: props.getRequiredStr("portainer-api-key"),
+            host: props.getRequiredStr('portainer-host'),
+            apiKey: props.getRequiredStr('portainer-api-key')
         },
         repo: {
-            url: props.getRequiredByActionStr('repo-url', actionType, [ActionType.Upsert]),
-            auth: auth,
-        },
+            url: props.getRequiredByActionStr('repo-url', actionType, [
+                ActionType.Upsert
+            ]),
+            auth
+        }
     };
 };
 exports.extractProps = extractProps;
