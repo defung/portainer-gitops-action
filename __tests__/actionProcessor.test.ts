@@ -113,7 +113,9 @@ describe('actionProcessor', () => {
     ])
 
     mockAxios
-      .onPost('http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1')
+      .onPost(
+        'http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1'
+      )
       .reply(200, {})
 
     await actionProcessor.processAction(upsertProps, axiosInstance)
