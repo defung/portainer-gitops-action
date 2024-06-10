@@ -1,33 +1,56 @@
-import {ActionProps, ActionType, PortainerActionProps, RepoProps} from "./props";
+import {
+  ActionProps,
+  ActionType,
+  PortainerActionProps,
+  RepoProps,
+} from "./props";
 import * as core from "@actions/core";
 import {
-  Configuration, StacksApi,
+  Configuration,
+  StacksApi,
   StacksComposeStackFromGitRepositoryPayload,
-  StacksStackGitRedployPayload
+  StacksStackGitRedployPayload,
 } from "./generated-sources/portainer-ce-2.20.3";
-import {AxiosInstance} from "axios";
+import { AxiosInstance } from "axios";
 
-const processList = async (stacksApi: StacksApi, action: ActionProps): Promise<void> => {
+const processList = async (
+  stacksApi: StacksApi,
+  action: ActionProps,
+): Promise<void> => {
   return stacksApi
     .stackList(JSON.stringify({ EndpointId: action.endpointId }))
     .then((res) => res.data)
     .then((list) => {
-      const outputStr = JSON.stringify(list.map((s) => ({ 'Id': s.Id, 'Name': s.Name })));
+      const outputStr = JSON.stringify(
+        list.map((s) => ({ Id: s.Id, Name: s.Name })),
+      );
       core.setOutput("stacks", outputStr);
     })
 };
 
-const processUpsert = async (stacksApi: StacksApi, action: ActionProps, repo: RepoProps): Promise<void> => {
+const processUpsert = async (
+  stacksApi: StacksApi,
+  action: ActionProps,
+  repo: RepoProps,
+): Promise<void> => {
   if (!action.stackName) {
     return Promise.reject("'stack-name' missing!");
   } else if (!repo.url) {
     return Promise.reject("'repo-url' missing!");
   } else {
-    const list = (await stacksApi.stackList(JSON.stringify({ EndpointId: action.endpointId }))).data;
-    const stackToUpdate = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
+    const list = (
+      await stacksApi.stackList(
+        JSON.stringify({ EndpointId: action.endpointId }),
+      )
+    ).data;
+    const stackToUpdate = list.find(
+      (s) => s.EndpointId === action.endpointId && s.Name === action.stackName,
+    );
 
     if (stackToUpdate && !stackToUpdate.Id) {
-      return Promise.reject(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+      return Promise.reject(
+        `Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`,
+      );
     } else if (stackToUpdate && stackToUpdate.Id) {
       const body: StacksStackGitRedployPayload = {
         prune: true,
@@ -35,7 +58,7 @@ const processUpsert = async (stacksApi: StacksApi, action: ActionProps, repo: Re
         repositoryAuthentication: repo.auth !== undefined,
         repositoryUsername: repo.auth?.username,
         repositoryPassword: repo.auth?.password,
-      }
+      };
       return stacksApi
         .stackGitRedeploy(stackToUpdate.Id, body, action.endpointId)
         .then((res) => core.info(`Update result: HTTP ${res.status}`));
@@ -56,18 +79,30 @@ const processUpsert = async (stacksApi: StacksApi, action: ActionProps, repo: Re
   }
 };
 
-const processDelete = async (stacksApi: StacksApi, action: ActionProps): Promise<void> => {
+const processDelete = async (
+  stacksApi: StacksApi,
+  action: ActionProps,
+): Promise<void> => {
   if (!action.stackName) {
     return Promise.reject("'stack-name' missing!");
   } else {
-    const list = (await stacksApi.stackList(JSON.stringify({ EndpointId: action.endpointId }))).data;
-    const stackToDelete = list.find((s) => s.EndpointId === action.endpointId && s.Name === action.stackName);
+    const list = (
+      await stacksApi.stackList(
+        JSON.stringify({ EndpointId: action.endpointId }),
+      )
+    ).data;
+    const stackToDelete = list.find(
+      (s) => s.EndpointId === action.endpointId && s.Name === action.stackName,
+    );
 
     if (!stackToDelete) {
-      return Promise.reject(`Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
-    }
-    else if (!stackToDelete.Id)
-      return Promise.reject(`Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`);
+      return Promise.reject(
+        `Unable to find stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`,
+      );
+    } else if (!stackToDelete.Id)
+      return Promise.reject(
+        `Unable to extract ID from stack: [endpointId=${action.endpointId}, stackName=${action.stackName}]`,
+      );
     else {
       return stacksApi
         .stackDelete(stackToDelete.Id, action.endpointId)
@@ -76,8 +111,11 @@ const processDelete = async (stacksApi: StacksApi, action: ActionProps): Promise
   }
 };
 
-export const processAction = ({ action, portainer, repo }: PortainerActionProps, axios?: AxiosInstance): Promise<void> => {
-  const config = new Configuration({ apiKey: portainer.apiKey  });
+export const processAction = async (
+  { action, portainer, repo }: PortainerActionProps,
+  axios?: AxiosInstance,
+): Promise<void> => {
+  const config = new Configuration({ apiKey: portainer.apiKey });
   const stacksApi = new StacksApi(config, `${portainer.host}/api`, axios);
 
   switch (action.type) {

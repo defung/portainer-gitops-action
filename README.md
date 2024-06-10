@@ -1,4 +1,3 @@
-
 # Portainer GitOps Action
 
 [![GitHub Super-Linter](https://github.com/actions/typescript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
@@ -94,14 +93,14 @@ There are a few things to keep in mind when writing your action code:
   In `main.ts`, you will see that the action is run in an `async` function.
 
   ```javascript
-  import * as core from '@actions/core'
+  import * as core from "@actions/core";
   //...
 
   async function run() {
     try {
       //...
     } catch (error) {
-      core.setFailed(error.message)
+      core.setFailed(error.message);
     }
   }
   ```

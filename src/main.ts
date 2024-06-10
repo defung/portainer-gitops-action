@@ -1,14 +1,14 @@
-import * as core from '@actions/core';
+import * as core from "@actions/core";
 
-import {extractProps} from "./props";
-import {processAction} from "./actionProcessor";
+import { extractProps } from "./props";
+import { processAction } from "./actionProcessor";
 
 const propsParseError: Error = {
-  message: 'Failed to parse properties!',
-  name: 'PropsParseError'
+  message: "Failed to parse properties!",
+  name: "PropsParseError",
 };
 
-const handleFailure = (err: any): Promise<void> => {
+const handleFailure = async (err: any): Promise<void> => {
   const errStr = JSON.stringify(err, null, 2);
   core.setFailed(errStr);
   return Promise.reject(errStr);
@@ -20,7 +20,6 @@ export const run = async () => {
   if (!actionProps) {
     return handleFailure(propsParseError);
   } else {
-    return processAction(actionProps)
-      .catch(handleFailure);
+    return processAction(actionProps).catch(handleFailure);
   }
-}
+};
