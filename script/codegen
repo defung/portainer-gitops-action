@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 INPUT_DIR="./openapi"
 OUTPUT_DIR="./src/generated-sources"

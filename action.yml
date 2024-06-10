@@ -1,5 +1,7 @@
 name: 'Portainer GitOps Action'
 description: 'Perform GitOps actions against a Portainer instance'
+author: 'defung'
+
 inputs:
   portainer-host:
     description: portainer host (include scheme, domain, and port)

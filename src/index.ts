@@ -1,17 +1,7 @@
-import * as core from '@actions/core';
+/**
+ * The entrypoint for the action.
+ */
+import { run } from './main'
 
-import {extractProps} from "./props";
-import {processAction} from "./actionProcessor";
-
-const run = () => {
-  const actionProps = extractProps();
-
-  if (!actionProps) {
-    core.setFailed("Failed to parse properties!");
-  } else {
-    const res = processAction(actionProps)[actionProps.action.type]();
-    res.catch((r: Error) => core.setFailed(`${r.message}\n${r.stack}`));
-  }
-}
-
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 run();

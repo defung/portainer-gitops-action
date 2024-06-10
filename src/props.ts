@@ -10,6 +10,7 @@ export interface ActionProps {
   type: ActionType;
   endpointId: number;
   stackName?: string;
+  composeFilePath?: string;
 }
 
 export interface PortainerProps {
@@ -18,7 +19,6 @@ export interface PortainerProps {
 }
 
 export interface RepoProps {
-  composeFilePath?: string;
   url?: string;
   auth?: {
     username: string;
@@ -84,6 +84,7 @@ export const extractProps = (): PortainerActionProps | undefined => {
       type: actionType,
       endpointId: props.getRequired<number>("endpoint-id", toNumber),
       stackName: props.getRequiredByActionStr("stack-name", actionType, [ActionType.Upsert, ActionType.Delete]),
+      composeFilePath: props.getRequiredByActionStr('repo-compose-file-path', actionType, [ActionType.Upsert]),
     },
     portainer: {
       host: props.getRequiredStr("portainer-host"),
@@ -91,7 +92,6 @@ export const extractProps = (): PortainerActionProps | undefined => {
     },
     repo: {
       url: props.getRequiredByActionStr('repo-url', actionType, [ActionType.Upsert]),
-      composeFilePath: props.getRequiredByActionStr('repo-compose-file-path', actionType, [ActionType.Upsert]),
       auth: auth,
     },
   };
