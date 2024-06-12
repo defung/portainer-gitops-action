@@ -46,7 +46,13 @@ jobs:
 
   test-action:
     name: GitHub Actions Test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    services:
+      portainer:
+        image: portainer/portainer-ce:2.20.3-alpine
+        volumes:
+          - ${{ github.workspace }}/docker/data:/data
+          - var/run/docker.sock:/var/run/docker.sock
 
     steps:
       - name: Checkout
@@ -59,9 +65,8 @@ jobs:
         with:
           action: list
           endpoint-id: 3
-          portainer-host: ${{ secrets.PORTAINER_HOST }}
-          portainer-api-key: ${{ secrets.PORTAINER_API_KEY }}
-          github-pat: ${{ secrets.GH_PAT }}
+          portainer-host: http://portainer:9000
+          portainer-api-key: ptr_Rpwb9AfYewKyHQIYJjUjMx7EEvpJtLx0wwzUhore4+c=
 
       - name: Print Output
         id: output
