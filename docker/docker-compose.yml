@@ -1,0 +1,10 @@
+---
+services:
+  portainer:
+    image: portainer/portainer-ce:2.20.3-alpine
+    container_name: portainer
+    restart: always
+    volumes:
+      - ./data:/data
+    ports:
+      - 9000:9000
