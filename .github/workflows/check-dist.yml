@@ -18,7 +18,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   check-dist:
@@ -29,6 +29,9 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Setup Node.js
         id: setup-node
@@ -45,9 +48,23 @@ jobs:
         id: build
         run: npm run bundle
 
+      - name: Commit Lint Changes
+        if: github.event_name == 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: commit-dist
+        with:
+          commit_message: Automatic dist/ update from Github Actions
+
+      - name: End if There was a Dist Commit
+        if: steps.commit-dist.outputs.changes_detected == 'true'
+        run: |
+          echo "dist/ automatically committed, stopping workflow"
+          exit 1
+
       # This will fail the workflow if the `dist/` directory is different than
       # expected.
       - name: Compare Directories
+        if: github.ref == 'refs/heads/main'
         id: diff
         run: |
           if [ ! -d dist/ ]; then
