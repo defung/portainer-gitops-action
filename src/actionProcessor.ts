@@ -68,6 +68,7 @@ const processUpsert = async (
       )
     } else if (stackToUpdate && stackToUpdate.Id) {
       const body: StacksStackGitRedployPayload = {
+        env: stackToUpdate.Env,
         prune: true,
         pullImage: true,
         repositoryAuthentication: repo.auth !== undefined,
