@@ -28484,6 +28484,7 @@ const processUpsert = async (stacksApi, action, repo) => {
         }
         else if (stackToUpdate && stackToUpdate.Id) {
             const body = {
+                env: stackToUpdate.Env,
                 prune: true,
                 pullImage: true,
                 repositoryAuthentication: repo.auth !== undefined,
