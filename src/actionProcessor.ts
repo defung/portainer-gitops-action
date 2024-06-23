@@ -13,9 +13,10 @@ import {
 } from './generated-sources/portainer-ce-2.20.3'
 import type { AxiosInstance } from 'axios'
 
-interface ExtendedCreateComposeStack extends StacksComposeStackFromGitRepositoryPayload {
-  method: string;
-  type: string;
+interface ExtendedCreateComposeStack
+  extends StacksComposeStackFromGitRepositoryPayload {
+  method: string
+  type: string
 }
 
 const missingPropError = (msg: string): Error => ({
