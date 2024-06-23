@@ -94,7 +94,7 @@ const processUpsert = async (
         repositoryUsername: repo.auth?.username,
         repositoryPassword: repo.auth?.password,
         env: [],
-        tlsskipVerify: false,
+        tlsskipVerify: false
       }
 
       const res = await stacksApi.stackCreateDockerStandaloneRepository(

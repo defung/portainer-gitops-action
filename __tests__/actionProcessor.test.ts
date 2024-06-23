@@ -139,7 +139,7 @@ describe('actionProcessor', () => {
       repositoryPassword: upsertProps.repo.auth?.password,
       additionalFiles: [],
       env: [],
-      tlsskipVerify: false,
+      tlsskipVerify: false
     }
 
     expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)

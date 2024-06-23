@@ -28496,12 +28496,18 @@ const processUpsert = async (stacksApi, action, repo) => {
         }
         else {
             const body = {
+                method: 'repository',
+                type: 'standalone',
                 name: action.stackName,
-                composeFile: action.composeFilePath,
                 repositoryURL: repo.url,
+                repositoryReferenceName: 'refs/heads/main',
+                composeFile: action.composeFilePath,
+                additionalFiles: [],
                 repositoryAuthentication: repo.auth !== undefined,
                 repositoryUsername: repo.auth?.username,
-                repositoryPassword: repo.auth?.password
+                repositoryPassword: repo.auth?.password,
+                env: [],
+                tlsskipVerify: false
             };
             const res = await stacksApi.stackCreateDockerStandaloneRepository(action.endpointId, body);
             return core.info(`Create result: HTTP ${res.status}`);
