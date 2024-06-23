@@ -13,6 +13,12 @@ import {
 } from './generated-sources/portainer-ce-2.20.3'
 import type { AxiosInstance } from 'axios'
 
+interface ExtendedCreateComposeStack
+  extends StacksComposeStackFromGitRepositoryPayload {
+  method: string
+  type: string
+}
+
 const missingPropError = (msg: string): Error => ({
   name: 'MissingPropError',
   message: msg
@@ -82,13 +88,19 @@ const processUpsert = async (
       )
       return core.info(`Update result: HTTP ${res.status}`)
     } else {
-      const body: StacksComposeStackFromGitRepositoryPayload = {
+      const body: ExtendedCreateComposeStack = {
+        method: 'repository',
+        type: 'standalone',
         name: action.stackName,
-        composeFile: action.composeFilePath,
         repositoryURL: repo.url,
+        repositoryReferenceName: 'refs/heads/main',
+        composeFile: action.composeFilePath,
+        additionalFiles: [],
         repositoryAuthentication: repo.auth !== undefined,
         repositoryUsername: repo.auth?.username,
-        repositoryPassword: repo.auth?.password
+        repositoryPassword: repo.auth?.password,
+        env: [],
+        tlsskipVerify: false
       }
 
       const res = await stacksApi.stackCreateDockerStandaloneRepository(
