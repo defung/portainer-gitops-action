@@ -128,12 +128,18 @@ describe('actionProcessor', () => {
     const requestHeaders = getHeaders(request)
 
     const expectedRequestBody = {
+      method: 'repository',
+      type: 'standalone',
       name: upsertProps.action.stackName,
       composeFile: upsertProps.action.composeFilePath,
       repositoryURL: upsertProps.repo.url,
+      repositoryReferenceName: 'refs/heads/main',
       repositoryAuthentication: upsertProps.repo.auth !== undefined,
       repositoryUsername: upsertProps.repo.auth?.username,
-      repositoryPassword: upsertProps.repo.auth?.password
+      repositoryPassword: upsertProps.repo.auth?.password,
+      additionalFiles: [],
+      env: [],
+      tlsskipVerify: false,
     }
 
     expect(requestHeaders.get('X-API-KEY')).toBe(apiKey)
@@ -141,7 +147,7 @@ describe('actionProcessor', () => {
     expect(request.url).toBe(
       'http://localhost:8000/api/stacks/create/standalone/repository?endpointId=1'
     )
-    expect(JSON.parse(request.data)).toMatchObject(expectedRequestBody)
+    expect(JSON.parse(request.data)).toEqual(expectedRequestBody)
   })
 
   it('properly handles "Upsert" action: Update', async () => {
